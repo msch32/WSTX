@@ -1,0 +1,4 @@
+\xpg@aux {}{german}
+\beamer@sectionintoc {1}{DCF77 Grundlagen}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Timecode}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{Übertragung}{5}{0}{1}
