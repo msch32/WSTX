@@ -1,5 +1,6 @@
 \documentclass[aspectratio=169]{beamer}
 
+%support for german language
 \usepackage{polyglossia}
 \setmainlanguage{german}
 
@@ -7,12 +8,26 @@
 
 \usepackage{tabularray}
 
+
+%including external figures
 \usepackage{graphicx}
+\graphicspath{{figures/}}
+
+%generation of plots and images
 \usepackage{tikz}
 \usepackage{pgfplots}
 
+% packages for use while writing presentation, later no longer needed
 \usepackage{todonotes}
 \usepackage{blindtext}
+
+% package for improved math handling and units
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage[math-style = ISO, bold-style = ISO]{unicode-math}
+
+\usepackage{siunitx}
+\sisetup{locale = DE, per-mode = symbol}
 
 \author{Mirko Schultheiß}
 \title{DCF77}
@@ -28,18 +43,48 @@
 \section{DCF77 Grundlagen}
 \begin{frame}
     \frametitle{Kenngrößen}
-    \blindtext[1]
+    \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+        \begin{itemize}
+            \item Trägerfrequenz: \qty{77.5}{\kHz}
+            \item Modulationsart: ASK
+            \item Quellencodierung:\\ BCD + Paritätsbits
+            \item Sender: Maiflingen, de
+            \item Sendeleistung \todo[inline]{research transmit power}
+        \end{itemize}
+    \end{column}
+        \begin{column}{0.48\textwidth}
+            Test23
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \section{Auslegung Antenne}
 \begin{frame}
     \frametitle{Auswahl einer Bauweise}
-    \blindtext[1]
+    \begin{itemize}
+        \item Häufig in käuflichen Empfänger-Modulen genutzt
+        \item kostengünstig in der Beschaffung
+        \item einfache Produktion
+    \end{itemize}
+    \vspace{2em}
+    {\large \bfseries \(\Rightarrow\) Ferrit-Stab Antenne}
 \end{frame}
-
 \begin{frame}
     \frametitle{Berechnung einer Ferritantenne}
-    \blindtext[1]
+    \begin{block}{Frage:}
+        Wie kann die Antenne auf die Trägerfrequenz eingestellt werden?
+    \end{block}
+    \begin{block}{Antwort:}
+        Aufbau eines parallelen LC-Schwingkreises
+    \end{block}
+    \begin{equation}
+        f_{\symup{resonanz}} = \frac{1}{2\pi\sqrt{LC}}
+    \end{equation}
+    \begin{equation}
+        C =\frac{1}{L\left(2\pi f\right)^2}
+    \end{equation}
+
 \end{frame}
 \section{Bandpassfilter}
 \begin{frame}
