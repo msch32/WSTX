@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (TeX Live 2026/Arch Linux)  (format=lualatex 2026.6.2)  22 JUN 2026 20:02
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026/Arch Linux)  (format=lualatex 2026.6.2)  23 JUN 2026 08:02
  restricted system commands enabled.
 **presentation.tex
 (./presentation.tex
@@ -2425,6 +2425,16 @@ LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
 
 ] [5
 
+] [6
+
+] [7
+
+] [8
+
+] [9
+
+] [10
+
 ]
 \tf@nav=\write6
 
@@ -2440,28 +2450,32 @@ LaTeX Font Info:    Font shape `TU/FiraSans(0)/m/n' will be
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 69B7B2C670BE6DD138A95A93CA04AF3F;338.
+(rerunfilecheck)             Checksum: 02D567FA48D9A6136D57E0774A041792;370.
 )
 
 Here is how much of LuaTeX's memory you used:
- 42869 strings out of 476076
- 100000,1648299 words of node,token memory allocated
- 9805 words of node memory still in use:
-   44 hlist, 9 vlist, 5 rule, 85 disc, 4 local_par, 180 glue, 130 kern, 14 penal
-ty, 768 glyph, 102 attribute, 63 glue_spec, 102 attribute_list, 4 write, 19 pdf_
-literal, 1 pdf_start_link, 1 pdf_end_link, 1 pdf_action, 30 pdf_colorstack nodes
+ 42899 strings out of 476076
+ 125047,1648299 words of node,token memory allocated
+ 10715 words of node memory still in use:
+   50 hlist, 8 vlist, 3 rule, 93 disc, 3 local_par, 190 glue, 132 kern, 12 penal
+ty, 817 glyph, 159 attribute, 63 glue_spec, 159 attribute_list, 4 write, 59 pdf_
+literal, 3 pdf_start_link, 3 pdf_end_link, 3 pdf_action, 30 pdf_colorstack nodes
 
-   avail lists: 2:723,3:409,4:163,5:294,6:20,7:2099,9:265,10:18,11:172
- 64157 multiletter control sequences out of 65536+600000
+   avail lists: 2:907,3:447,4:163,5:310,6:21,7:2214,9:274,10:18,11:191
+ 64177 multiletter control sequences out of 65536+600000
  79 fonts using 27620551 bytes
- 128i,18n,130p,707b,1574s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,18n,130p,707b,1588s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/opentype/public/fira/FiraSans-Regular.otf></usr/sha
 re/texmf-dist/fonts/opentype/public/fira/FiraSans-Bold.otf>
-Output written on presentation.pdf (5 pages, 17216 bytes).
+Output written on presentation.pdf (10 pages, 25114 bytes).
 
-PDF statistics: 88 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
- 14 named destinations out of 1000 (max. 1048576)
+PDF statistics: 164 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
+ 24 named destinations out of 1000 (max. 1048576)
  40 words of extra memory for PDF output out of 10000 (max. 100000000)
 

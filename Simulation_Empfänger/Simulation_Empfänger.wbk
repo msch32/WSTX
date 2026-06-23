@@ -22,6 +22,11 @@
       "showGrid": true,
       "traces": [
         {
+          "color": "rgb(55, 126, 184)",
+          "signal": "V(OUTBP)",
+          "trace_type": 257
+        },
+        {
           "color": "rgb(228, 26, 28)",
           "signal": "V(sig_mod)",
           "trace_type": 257
@@ -31,7 +36,7 @@
     {
       "analysis": "FFT",
       "commands": [
-        "linearize V(sig_mod) V(VNOISE) V(VPULSE) V(VSIN) V(VSWITCHNOISE)\nfft V(sig_mod) V(VNOISE) V(VPULSE) V(VSIN) V(VSWITCHNOISE)",
+        "linearize V(OUTBP) V(sig_mod) V(VNOISE) V(VPULSE) V(VSIN) V(VSWITCHNOISE)\nfft V(OUTBP) V(sig_mod) V(VNOISE) V(VPULSE) V(VSIN) V(VSWITCHNOISE)",
         ".kicad adjustpaths",
         ".save all",
         ".probe alli",
@@ -47,6 +52,11 @@
       "measurements": [],
       "showGrid": true,
       "traces": [
+        {
+          "color": "rgb(55, 126, 184)",
+          "signal": "V(OUTBP)",
+          "trace_type": 513
+        },
         {
           "color": "rgb(228, 26, 28)",
           "signal": "V(sig_mod)",
