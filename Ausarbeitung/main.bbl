@@ -1,0 +1,159 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global/global}
+    \entry{horowitz_art_2015}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=eae852313f1caa761b4d50ecf145958c}{%
+           family={Horowitz},
+           familyi={H\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, {NY}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{eae852313f1caa761b4d50ecf145958c}
+      \strng{fullhash}{eae852313f1caa761b4d50ecf145958c}
+      \strng{fullhashraw}{eae852313f1caa761b4d50ecf145958c}
+      \strng{bibnamehash}{eae852313f1caa761b4d50ecf145958c}
+      \strng{authorbibnamehash}{eae852313f1caa761b4d50ecf145958c}
+      \strng{authornamehash}{eae852313f1caa761b4d50ecf145958c}
+      \strng{authorfullhash}{eae852313f1caa761b4d50ecf145958c}
+      \strng{authorfullhashraw}{eae852313f1caa761b4d50ecf145958c}
+      \field{labelalpha}{Hor15}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{Third edition}
+      \field{isbn}{978-0-521-80926-9}
+      \field{pagetotal}{1192}
+      \field{title}{The art of electronics}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \keyw{Electronic circuit design,Electronics}
+    \endentry
+    \entry{piester_zeit-_2004}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=8b589156d7345eb26bb96b28b2f57077}{%
+           family={Piester},
+           familyi={P\bibinitperiod},
+           given={Dirk},
+           giveni={D\bibinitperiod}}}%
+        {{hash=ae8e685be1c0bcb2b7c8171011164142}{%
+           family={Hetzel},
+           familyi={H\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=ff6ea9e08b0d5504e824ba39f356b73d}{%
+           family={Bauch},
+           familyi={B\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{8104bab8d60e8c9dad3b252ad24388c9}
+      \strng{fullhash}{8104bab8d60e8c9dad3b252ad24388c9}
+      \strng{fullhashraw}{8104bab8d60e8c9dad3b252ad24388c9}
+      \strng{bibnamehash}{8104bab8d60e8c9dad3b252ad24388c9}
+      \strng{authorbibnamehash}{8104bab8d60e8c9dad3b252ad24388c9}
+      \strng{authornamehash}{8104bab8d60e8c9dad3b252ad24388c9}
+      \strng{authorfullhash}{8104bab8d60e8c9dad3b252ad24388c9}
+      \strng{authorfullhashraw}{8104bab8d60e8c9dad3b252ad24388c9}
+      \field{labelalpha}{PHB04}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{journaltitle}{{PTB} Mitteilungen: Amts - und Mitteilungsblatt der Physikalisch - Technischen Bundesanstalt Braunschweig - Berlin}
+      \field{month}{1}
+      \field{shortjournal}{{PTB} Mitteilungen: Amts - und Mitteilungsblatt der Physikalisch - Technischen Bundesanstalt Braunschweig - Berlin}
+      \field{title}{Zeit- und Normalfrequenzverbreitung mit {DCF}77}
+      \field{volume}{114}
+      \field{year}{2004}
+      \field{dateera}{ce}
+      \field{pages}{345\bibrangedash 368}
+      \range{pages}{24}
+      \verb{file}
+      \verb PDF:/home/mirko/Zotero/storage/XMKSQB6S/Piester et al. - 2004 - Zeit- und Normalfrequenzverbreitung mit DCF77.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{piester_time_2011}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=4179414d8e7d9c104311296bd589628f}{%
+           family={Piester},
+           familyi={P\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=ff6ea9e08b0d5504e824ba39f356b73d}{%
+           family={Bauch},
+           familyi={B\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f983545724559e2e4de7449300b6989e}{%
+           family={Becker},
+           familyi={B\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b6542ce2a2b97112dc52e3e9108d467d}{%
+           family={Hoppmann},
+           familyi={H\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Long Beach, California, {USA}}%
+      }
+      \list{publisher}{1}{%
+        {Physikalisch-Technische Bundesanstalt ({PTB})}%
+      }
+      \strng{namehash}{3636669abc0fd4caa00332dbfdbad10f}
+      \strng{fullhash}{ee43650b427879135cd53ded69159443}
+      \strng{fullhashraw}{ee43650b427879135cd53ded69159443}
+      \strng{bibnamehash}{3636669abc0fd4caa00332dbfdbad10f}
+      \strng{authorbibnamehash}{3636669abc0fd4caa00332dbfdbad10f}
+      \strng{authornamehash}{3636669abc0fd4caa00332dbfdbad10f}
+      \strng{authorfullhash}{ee43650b427879135cd53ded69159443}
+      \strng{authorfullhashraw}{ee43650b427879135cd53ded69159443}
+      \field{labelalpha}{Pie+11}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{14}
+      \field{eventtitle}{Proceedings of the 43rd Annual Time and Time Interval ({PTTI}) Systems and Applications Meeting}
+      \field{month}{11}
+      \field{title}{Time and Frequency Broadcast with {DCF}77}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \field{pages}{185\bibrangedash 196}
+      \range{pages}{12}
+      \verb{file}
+      \verb PDF:/home/mirko/Zotero/storage/SA2Q8KBD/Piester et al. - 2011 - Time and frequency broadcast with DCF77.pdf:application/pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

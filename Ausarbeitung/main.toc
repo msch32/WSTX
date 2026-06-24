@@ -1,0 +1,14 @@
+\xpg@aux {}{german}
+\contentsline {section}{\numberline {1}Abstract}{3}{}%
+\contentsline {section}{\numberline {2}Grundlegende Information zu DCF77}{3}{}%
+\contentsline {subsection}{\numberline {2.1}Codierung der gesetzlichen Zeit}{3}{}%
+\contentsline {subsection}{\numberline {2.2}Modulation}{3}{}%
+\contentsline {section}{\numberline {3}Auslegung des Analogteils}{3}{}%
+\contentsline {subsection}{\numberline {3.1}Auswahl einer Antenne}{4}{}%
+\contentsline {subsubsection}{\numberline {3.1.1}Berechnung der Ferritantenne für DCF77}{4}{}%
+\contentsline {subsection}{\numberline {3.2}Bandpassfilter}{5}{}%
+\contentsline {subsubsection}{\numberline {3.2.1}Berechnung des Filters}{5}{}%
+\contentsline {subsubsection}{\numberline {3.2.2}Verifizierung}{6}{}%
+\contentsline {subsection}{\numberline {3.3}weitere Verarbeitung des Signals}{6}{}%
+\contentsline {subsubsection}{\numberline {3.3.1}Verstärkung}{6}{}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
