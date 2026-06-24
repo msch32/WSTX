@@ -5,7 +5,7 @@
 \setmainlanguage{german}
 
 \usepackage{fontspec}
-
+\usepackage{csquotes}
 \usepackage{tabularray}
 
 
@@ -28,10 +28,15 @@
 
 \usepackage{siunitx}
 \sisetup{locale = DE, per-mode = symbol}
+\DeclareSIUnit{\samples}{Samples}
+
+% Literaturverwaltung
+\usepackage[backend=biber, style=alphabetic]{biblatex}
+\addbibresource{literature.bib}
 
 \author{Mirko Schultheiß}
-\title{DCF77}
-\subtitle{TO REPLACE}
+\title{DCF77 Empfänger}
+\subtitle{Konzeption des Analogteils}
 
 
 \usetheme{durham}
@@ -42,19 +47,23 @@
 
 \section{DCF77 Grundlagen}
 \begin{frame}
-    \frametitle{Kenngrößen}
+    \frametitle{Kenngrößen~\cite{piester_zeit-_2004}}
     \begin{columns}[t]
     \begin{column}{0.48\textwidth}
         \begin{itemize}
-            \item Trägerfrequenz: \qty{77.5}{\kHz}
-            \item Modulationsart: ASK
-            \item Quellencodierung:\\ BCD + Paritätsbits
-            \item Sender: Maiflingen, de
-            \item Sendeleistung \todo[inline]{research transmit power}
+            \item Trägerfrequenz: \qty{77.5}{\kHz} 
+            \item Modulationsart: ASK 
+            \item Quellencodierung:\\ BCD + Paritätsbits 
+            \item Sender: Maiflingen, de 
+            \item Sendeleistung: 50kW (EIRP ca. 30-35kW) 
         \end{itemize}
     \end{column}
         \begin{column}{0.48\textwidth}
-            Test23
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.6\textwidth]{timecode}
+                \caption{Codierung der Zeit im DCF77 Standard}
+            \end{figure}
         \end{column}
     \end{columns}
 \end{frame}
@@ -63,7 +72,7 @@
 \begin{frame}
     \frametitle{Auswahl einer Bauweise}
     \begin{itemize}
-        \item Häufig in käuflichen Empfänger-Modulen genutzt
+        \item Häufig in käuflichen Empfänger-Modulen genutzt~\cite{piester_zeit-_2004}
         \item kostengünstig in der Beschaffung
         \item einfache Produktion
     \end{itemize}
@@ -75,40 +84,164 @@
     \begin{block}{Frage:}
         Wie kann die Antenne auf die Trägerfrequenz eingestellt werden?
     \end{block}
+    \uncover<2->{
     \begin{block}{Antwort:}
         Aufbau eines parallelen LC-Schwingkreises
-    \end{block}
+    \end{block}}
+    \uncover<3->{
     \begin{equation}
         f_{\symup{resonanz}} = \frac{1}{2\pi\sqrt{LC}}
-    \end{equation}
+    \end{equation}}
+    \uncover<4->{
     \begin{equation}
         C =\frac{1}{L\left(2\pi f\right)^2}
-    \end{equation}
+    \end{equation}}
 
 \end{frame}
 \section{Bandpassfilter}
 \begin{frame}
     \frametitle{Abwägungen zur Auslegung}
     \begin{itemize}
-        \item Bandbreite: 2,4kHz; auch schmaler möglich
+        \item Bandbreite: 2,4kHz~\cite{piester_zeit-_2004}
         \item Mittenfrequenz: Vorgegeben aus Trägerfrequenz
-        \item Verstärkung: Wenn möglich, schon Verstärkung des empfangenen Signals
+        \item Verstärkung: Wenn möglich, schon Verstärkung des empfangenen Signals\\
+            in diesem Beispiel \(G=\num{10}\)
     \end{itemize}
 \end{frame}
 \begin{frame}
-    \frametitle{Auswahl eines Designs und Berechnung}
+    \frametitle{Auswahl eines Designs}
     \begin{figure}
-        \includegraphics{stromlauf-BP}
-        \caption{Aufbau des gewählten Band-Pass-Filters}
+        \centering
+        \includegraphics[width = 0.6\textwidth]{stromlaufplan-bp}
+        \caption{Aufbau des gewählten Band-Pass-Filters~\cite{horowitz_art_2015}}
     \end{figure}
 \end{frame}
 
-\section{Demodulation in das Basisband}
+\begin{frame}
+    \frametitle{Berechnung~\cite{horowitz_art_2015}}
+    \begin{equation}
+        R_{\symup{F}} = \frac{\num{5.03}\cdot 10^7}{f_0} 
+    \end{equation}
+    \begin{equation}
+        R_{\symup{Q}} = \frac{10^5}{\num{3.48}Q + G - 1}
+    \end{equation}
+    \begin{equation}
+        R_{\symup{G}} = \num{3.16}\cdot 10^4 \frac{Q}{G}
+    \end{equation}
+    \begin{columns}
+        \centering
+        \begin{column}{0.3\textwidth}
+            \centering
+            \(R_{\symup{F}} = \qty{649.03}{\ohm}\)
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \centering
+            \(R_{\symup{Q}} = \qty{823.89}{\ohm}\)
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \centering
+            \(R_{\symup{G}} = \qty{102.04}{\kilo\ohm}\)
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}
+    \frametitle{Verifizierung}
+    \begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{semilogxaxis}[
+      xlabel={Frequenz (Hz)},
+      ylabel={Gain (dB)},
+      title={Amplitudengang},
+      grid=major,
+      width=12cm,
+      height=7cm,
+      legend pos=south east,
+    ]
+      \addplot[
+        blue,
+        thick,
+        smooth,
+        mark=none,
+      ] table[x index=0, y index=1, col sep=space] {amplitudengang_converted.txt};
+      \addlegendentry{V(OUTBP)}
+    \end{semilogxaxis}
+  \end{tikzpicture}
+  \caption{Amplitudengang des zuvor berechneten Filters}
+  \label{fig:amplitudengang}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Verifizierung}
+    \begin{alertblock}{Problem:}
+        Gain und Mittenfrequenz passen nicht zu den aus der Berechnung erwarteten Werten.
+    \end{alertblock}
+    \uncover<2->{
+    \begin{block}{Lösung:}
+        Simulation mit \enquote{Tuned values} in KiCAD
+    \end{block}}
+    \vfill
+    \uncover<2->{
+    \begin{columns}
+        \centering
+        \begin{column}{0.3\textwidth}
+            \centering
+            \(R_{\symup{F}} = \qty{600}{\ohm}\)
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \centering
+            \(R_{\symup{Q}} = \qty{855}{\ohm}\)
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \centering
+            \(R_{\symup{G}} = \qty{164}{\kilo\ohm}\)
+        \end{column}
+    \end{columns}}
+\end{frame}
+
+\section{weitere Verarbeitung des Signals}
 
 \begin{frame}
     \frametitle{Verstärkung des Signals}
-    \blindtext[1]
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \begin{block}{Normalerweise:}
+                PGA - Programmable Gain Amplifier~\cite{d_engeler_performance_2012}
+            \end{block}
+            \begin{block}{im Beispiel:}
+                Nutzen eines Operationsverstärkers
+            \end{block}
+            \begin{equation}
+                V_{\symup{out}} = V_{\symup{in}}\cdot \left(1 + \frac{R_1}{R_2}\right)
+            \end{equation}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.8\textwidth]{amplifier}
+                \caption{Nicht invertierender Verstärker}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
+\begin{frame}
+    \frametitle{weitere Verarbeitung}
+    \begin{block}{Es könnte folgen:}
+        weitere analoge Signalverarbeitung
+    \end{block}
+    \begin{alertblock}{Aber:}
+        Sampling-Rate moderner ADCs mehr als ausreichend zur Verarbeitung eines \qty{77.5}{\kHz} Signals.
+    \end{alertblock}
+    \begin{exampleblock}{STM32H7}
+        Abtastrate im 16-Bit Modus eines ADCs: \qty{3.6}{\mega\samples\per\second}~\cite{stmicroelectronics_getting_2020}
+    \end{exampleblock}
 
+\end{frame}
+\begin{frame}
+    \frametitle{Literatur}
+    \printbibliography
+\end{frame}
+\makethankyou{Vielen Dank}{Fragen • Feedback}
 
 \end{document}

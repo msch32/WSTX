@@ -1,5 +1,5 @@
 \xpg@aux {}{german}
 \beamer@sectionintoc {1}{DCF77 Grundlagen}{3}{0}{1}
 \beamer@sectionintoc {2}{Auslegung Antenne}{5}{0}{2}
-\beamer@sectionintoc {3}{Bandpassfilter}{8}{0}{3}
-\beamer@sectionintoc {4}{Demodulation in das Basisband}{11}{0}{4}
+\beamer@sectionintoc {3}{Bandpassfilter}{11}{0}{3}
+\beamer@sectionintoc {4}{weitere Verarbeitung des Signals}{18}{0}{4}
