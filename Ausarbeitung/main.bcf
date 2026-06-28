@@ -2373,14 +2373,15 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">literature.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1" intorder="1">piester_zeit-_2004</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">piester_time_2011</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">piester_time_2011</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">piester_zeit-_2004</bcf:citekey>
     <bcf:citekey order="4" intorder="1">piester_time_2011</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">horowitz_art_2015</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">horowitz_art_2015</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">piester_time_2011</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">piester_time_2011</bcf:citekey>
     <bcf:citekey order="7" intorder="1">horowitz_art_2015</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">d_engeler_performance_2012</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">horowitz_art_2015</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">horowitz_art_2015</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">d_engeler_performance_2012</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">stmicroelectronics_getting_2020</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">
@@ -2415,4 +2416,14 @@
     </bcf:sort>
   </bcf:sortingtemplate>
   <!-- DATALISTS -->
+  <bcf:datalist section="0"
+                name="anyt/global//global/global/global"
+                type="entry"
+                sortingtemplatename="anyt"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global"
+                namehashtemplatename="global">
+  </bcf:datalist>
 </bcf:controlfile>

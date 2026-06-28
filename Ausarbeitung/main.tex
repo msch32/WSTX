@@ -8,6 +8,7 @@
 \usepackage{csquotes}
 \usepackage{tabularray}
 
+\usepackage[hidelinks]{hyperref}
 
 %including external figures
 \usepackage{graphicx}
@@ -44,6 +45,7 @@
 \maketitle
 \clearpage
 \tableofcontents
+\listoffigures
 \clearpage
 \section{Abstract}
 In diesem Dokument soll der Analogteil eines möglichen Empfängers für das DCF77-Signal ausgelegt werden.
@@ -70,9 +72,11 @@ Minuten, Stunden, der Kalendertag, der Wochentag, der Monat und das Jahr werden 
 \end{figure}
 
 \subsection{Modulation}
+\label{sec:modulation}
 Zu Beginn jeder Sekunde mit Ausnahme der 59. Sekunde einer Minute wird die Amplitude des Signals auf \qty{15}{\percent} abgesenkt.
 Für eine \num{1} wird das Signal für \qty{200}{ms} abgesenkt, für eine \num{0} wird die Amplitude für \qty{100}{\ms} abgesenkt.
-Auch wenn diese Art der Modulation von offizieller Stelle als Amplitudenmodulation beschrieben wird~\cite{piester_time_2011}, scheint dieses Modulation sich besser als Puls-Weiten-Modulation (PWM) beschreiben.
+Auch wenn diese Art der Modulation von offizieller Stelle als Amplitudenmodulation beschrieben wird~\cite{piester_time_2011}, scheint dieses Modulationsschema sich besser als Puls-Weiten-Modulation (PWM) beschreiben zu lassen.
+Zusätzlich werden der Trägerfrequenz per Binary Phase Shift Keying mit Pseudo-Random-Noise Sequenzen um \qty{\pm 13}{\degree} aufmoduliert, durch welche ein noch exakteres Syncronisieren auf die Atom-Uhren der PTB ermöglicht wird.
 
 \section{Auslegung des Analogteils}
 Im Folgenden werden alle Elemente der analogen Signalkette beginnend mit der Empfangsantenne betrachtet
@@ -182,5 +186,23 @@ Dieser berechnet sich nach Formel~\eqref{eq:amp} und muss an die lokalen Empfang
 \end{equation}
 
 \subsubsection{weitere Verarbeitung}
-Das Signal könnte jetzt noch weiter analog demoduliert werden.
+Das Signal könnte jetzt noch weiter analog demoduliert werden. Dazu könnte eine Diode in Verbindung mit einem RC-Tiefpass verwendet werden, um die Hüllkurve zu regenerieren, mit der die Trägerfrequenz moduliert wurde.
+Dabei muss darauf geachtet werden, dass die Zeitkonstante zum einen nicht zu kurz gewählt wird, da so die Hüllkurve nicht vollständig regeneriert wird.
+Zum Anderen darf die Zeitkonstante auch nicht zu lang gewählt werden, da dadurch die Flanken zu Beginn jeder Sekunde deutlich flacher werden und so die Möglichkeiten zur Detektion im Digitalteil eingeschränkt werden.
+Das bedeutet jedoch zusätzlichen Hardware-Aufwand und einige zusätzliche Berechnungen.
+
+Nachdem moderne Microcontroller über ADCs verfügen, die schnell genug sind, um die Trägerfrequenz von \qty{77.5}{\kHz} abzutasten.
+Das Abtasttheorem von Shannon besagt, dass ein Signal mindestens mit der doppelten der größten in dem Signal enthaltenen Frequenz abgetastet werden muss, um eindeutig auf die ursprüngliche Signalform zurückführbar zu sein.
+Dementsprechend muss die Abtastrate für das DCF77-Signal mindestens \(f_{\symup{s}} = 2 f_{\symup{c}} = \qty{155}{\kHz}\) betragen.
+Die Microcontroller der STM32H7 Familie beispielsweise verfügen über drei 16-Bit ADCs, mit denen eine maximale Abtastrate von \qty{3.6}{\mega\samples} erreicht werden kann~\cite{stmicroelectronics_getting_2020}
+Damit lässt sich das Abtasttheorem mit einem deutlichen Überhang erfüllen.
+Durch diese Art der Weiterverarbeitung des verstärkten Signals, stehen zusätzlich zu den Pulsen auch die Informationen aus dem in Abschnitt~\ref{sec:modulation} angesprochenen Pseudo-Random-Noise Binary Phase Shift Keying zur Verfügung.
+
+\section{Fazit}
+Dieser Empfänger ist natürlich mehr ein Lernprojekt, als etwas, das man in einem kommerziellen Produkt verwenden würde.
+Hier gibt es genug günstige Empfänger, die einfach verbaut werden können.
+Außerdem stehen in der aktuellen Zeit viele weitere Möglichkeiten zur Zeitsynchronisation zur Verfügung. Einige Beispiele hierfür sind unter Anderem das Network-Time-Protokoll, kurz NTP und GPS, welches eine deutlich exaktere Synchronisation ermöglicht.
+Dennoch bietet der Aufbau des Projektes die Möglichkeit, sich mit Antennen und deren Tuning, mit Verstärkern und analogen Filtern, sowohl aktiv als auch passiv zu beschäftigen.
+\clearpage
+\printbibliography
 \end{document}
